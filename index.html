@@ -12,27 +12,40 @@
     <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
 <body>
-    <header>Weather Dashboard</header>
-    <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
+    <header class="text-center">Weather Dashboard</header>
+    <main>
+        <div class = row>
+        <div class="col-12 col-md-4 flex-column">
         <div class="card">
-            <h3 class="card-header">Search for a City:</h3>
+            <h2 class="card-header">Search for a City:</h2>
             <form class="user-form">
                 <label class="form-label" for="city-name">City Name</label>
                 <input name="city-name" id="city-name" type = "text" autofocus = "true" class="form-input"/>
                 <button type="submit" class="btn">Search</button>
             </form>
         </div>
+        </div>
+        <!--Today's Weather-->
+        <div class="current-city col-12 col-md-8 flex-column">
+        <h2 class="card-header">Current Weather</h2>
 
-        <div class="card">
+        </div>
+        </div>
+
+        <div class="row">
+        <!--Search History-->
+        <divc class=" col-12 col-md-4 flex-column">
+            <div class="card">
+                <h3 class="card-header">History</h3>
+            </div>
+            
+
+        </div>
+        <!--Five Day Forecast-->
+        <div class=" col-12 col-md-8 flex-column">
 
         </div>
         </div>
-        <!--show weather for city searched-->
-        <div>
-
-        </div>
-        
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
