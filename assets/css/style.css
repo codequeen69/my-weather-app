@@ -1,0 +1,50 @@
+.parent-el{
+    width:20%;
+    margin:20px;
+}
+header{
+    background-color: blue;
+    color: aliceblue;
+    font-size: 50px;
+    margin:20px;
+
+}
+label{
+    color:darkorange;
+    background-color: cornflowerblue;
+    margin: 20px;
+}
+form{
+    background-color: cornflowerblue;
+    margin:10px;
+}
+.current-weather{
+
+}
+.current-city img{
+    height: 75px;
+    width: 75px;
+
+}
+.card-header{
+    background-color: cornflowerblue;
+    color: darkorange;
+    margin:10px;
+}
+.btn{
+    color: cornflowerblue;
+    background-color:darkorange;
+    border: 5px black;
+}
+.save-btn{
+    background-color: darkorange;
+    color:cornflowerblue;
+    width: 90%;
+    right: 20%;
+}
+.safe{
+    background-color:green;
+}
+.mild{
+    background-color:yellow
+}

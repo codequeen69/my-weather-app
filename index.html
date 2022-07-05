@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Weather App</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
     <header class="text-center">Weather Dashboard</header>
     <main>
-        <div class = row>
-        <div class="col-12 col-md-4 flex-column">
-        <div class="card">
-            <h2 class="card-header">Search for a City:</h2>
-            <form class="user-form">
-                <label class="form-label" for="city-name">City Name</label>
-                <input name="city-name" id="city-name" type = "text" autofocus = "true" class="form-input"/>
-                <button type="submit" class="btn">Search</button>
-            </form>
-        </div>
-        </div>
-        <!--Today's Weather-->
-        <div class="current-city col-12 col-md-8 flex-column">
-        <h2 class="card-header">Current Weather</h2>
+        <div class=row>
+            <div class="col-12 col-md-4 flex-column">
+                <div class="card">
+                    <h2 class="card-header">Search for a City:</h2>
+                    <form class="user-form">
+                        <label class="form-label" for="city-name">City Name</label>
+                        <input name="city-name" id="city-name" type="text" autofocus="true" class="form-input" />
+                        <button type="submit" class="btn">Search</button>
+                    </form>
+                </div>
+            </div>
+            <!--Today's Weather-->
+            <div class="current-weather col-12 col-md-8 flex-column">
+                <h2 class="card-header">Current Weather</h2>
 
-        </div>
+                <div class="card current-city">
+                
+
+
+                </div>
+            </div>
         </div>
 
         <div class="row">
-        <!--Search History-->
-        <divc class=" col-12 col-md-4 flex-column">
-            <div class="card">
-                <h3 class="card-header">History</h3>
+            <!--Search History-->
+            <div class=" col-12 col-md-4 flex-column">
+                <div class="card city-history">
+                    <h2 class="card-header">History</h2>
+                </div>
             </div>
+
+            <!--Five Day Forecast-->
             
-
-        </div>
-        <!--Five Day Forecast-->
-        <div class=" col-12 col-md-8 flex-column">
-
-        </div>
-        </div>
+                <div class="col-12 col-md-8 flex-column">
+                <h2 class="card-header">5-Day Forecast:</h2>
+                    <div class="card five-day d-flex flex-row">
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
