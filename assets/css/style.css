@@ -1,6 +1,8 @@
 .parent-el{
     width:20%;
     margin:20px;
+    background-color: grey;
+    color:white;
 }
 header{
     background-color: blue;
@@ -20,6 +22,12 @@ form{
 }
 .current-weather{
 
+}
+.current-city{
+    width:30%;
+    background-color: grey;
+    color:white;
+    margin-left: 2%;
 }
 .current-city img{
     height: 75px;
@@ -44,7 +52,17 @@ form{
 }
 .safe{
     background-color:green;
+    color: black;
 }
 .mild{
-    background-color:yellow
+    background-color:yellow;
+    color:black;
+}
+.moderate{
+    background-color: orange;
+    color:black;
+}
+.severe{
+    background-color: red;
+    color:black;
 }

@@ -36,7 +36,7 @@ var getWeather = function (newLon, newLat, city) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data)
+                console.log(data)
                 displayCurrentWeather(data, city);
                 //display 5 day
                 displayFiveDay(data, city);
@@ -53,7 +53,7 @@ var getCityLocation = function (city) {
     fetch(geoApiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data);
+                console.log(data);
 
                 var newLat = data[0].lat;
                 var newLon = data[0].lon;
@@ -65,8 +65,18 @@ var getCityLocation = function (city) {
 };
 
 var displayCurrentWeather = function (data, city) {
+    //name
+    //var cityName = data[0].name;
+    //var currentCityName = document.createElement("h3");
+    //currentCityName.textContent = cityName;
+    //currentCity.appendChild(currentCityName);
+    //date
+    var thisDate =moment().format("MMMM Do YYYY");
+    var currentDate = document.createElement("p");
+    currentDate.textContent = thisDate;
+    currentCity.appendChild(currentDate);
     //icon
-    var currentIcon = data.current.weather[0].icon
+    var currentIcon = data.current.weather[0].icon;
     var currentCityIcon = document.createElement("img");
     currentCityIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png");
     currentCity.appendChild(currentCityIcon);
@@ -95,26 +105,33 @@ var displayCurrentWeather = function (data, city) {
     currentCityUv.textContent = "UVI: " + currentUv;
     currentCity.appendChild(currentCityUv);
     if (currentUv <= 2){
-        currentCityUv.classList.add("safe")
+        currentCityUv.classList.add("safe");
     }
-    if(currentUv >=3 <5){
-currentCityUv.classList.add("mild")
+    if(currentUv >=3 <6){
+    currentCityUv.classList.add("mild");
+    }
+    if(currentUv>=6 <8){
+        currentCityUv.classList.add("moderate");
+    }
+    if (currentUv > 8){
+        currentCityUv.classList.add("severe");
     }
 
    
 };
 
 displayFiveDay = function(data){
-    //console.log(data);
     fiveDayEl.textContent = "";
-    var eachDay = document.createElement("div")
-    var fiveDayForecast = data.daily;
-    //console.log(fiveDayForecast);
+    
     for (var i =1; i<6; i++){
         var parentDiv = document.createElement("div");
         parentDiv.classList.add("parent-el")
-        //date
-
+       // date
+        var dateDaily = document.createElement("p")
+        var dailyDate =moment().add(1, "days").format("MMMM Do YYYY");
+        dateDaily.textContent = dailyDate;
+       parentDiv.appendChild(dateDaily);
+    
         //cute icon
         var iconDaily = document.createElement("img")
         var dailyIcon = data.daily[i].weather[0].icon;
