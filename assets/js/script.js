@@ -49,7 +49,7 @@ var getWeather = function (newLon, newLat, city) {
     });
 };
 var getCityLocation = function (city) {
-    var geoApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=701c88b75ee743df4abd89d25afbdbb1"
+    var geoApiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=701c88b75ee743df4abd89d25afbdbb1"
     fetch(geoApiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
@@ -77,7 +77,7 @@ var displayCurrentWeather = function (data, city) {
     //icon
     var currentIcon = data.current.weather[0].icon;
     var currentCityIcon = document.createElement("img");
-    currentCityIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png");
+    currentCityIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + currentIcon + "@2x.png");
     currentCity.appendChild(currentCityIcon);
     //Temp
     var currentTemp = data.current.temp;
@@ -132,7 +132,7 @@ displayFiveDay = function(data){
         //cute icon
         var iconDaily = document.createElement("img")
         var dailyIcon = data.daily[i].weather[0].icon;
-        iconDaily.setAttribute("src", "http://openweathermap.org/img/wn/" + dailyIcon + "@2x.png");
+        iconDaily.setAttribute("src", "https://openweathermap.org/img/wn/" + dailyIcon + "@2x.png");
         parentDiv.appendChild(iconDaily);
 
         //Temp
