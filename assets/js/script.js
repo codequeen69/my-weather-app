@@ -40,7 +40,7 @@ var getWeather = function (newLon, newLat, city) {
                 displayCurrentWeather(data, city);
                 //display 5 day
                 displayFiveDay(data, city);
-
+                
             });
         }
         else {
@@ -57,6 +57,7 @@ var getCityLocation = function (city) {
                 var newLat = data[0].lat;
                 var newLon = data[0].lon;
                 getWeather(newLon, newLat, city);
+                
             });
         }
 
