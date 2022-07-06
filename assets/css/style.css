@@ -44,11 +44,12 @@ form{
     background-color:darkorange;
     border: 5px black;
 }
+
 .save-btn{
     background-color: darkorange;
     color:cornflowerblue;
     width: 90%;
-    right: 20%;
+    margin:2% auto;
 }
 .safe{
     background-color:green;

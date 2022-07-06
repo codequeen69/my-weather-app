@@ -26,17 +26,17 @@ var formCitySubmit = function (event) {
         //then clear the input field
         cityInputEl.value = "";
     }
-    else {
+    else{
         alert("Please enter a city name.")
     }
 };
 
 var getWeather = function (newLon, newLat, city) {
+    console.log(newLat);
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + newLat + "&lon=" + newLon + "&units=imperial&appid=701c88b75ee743df4abd89d25afbdbb1";
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data)
                 displayCurrentWeather(data, city);
                 //display 5 day
                 displayFiveDay(data, city);
@@ -53,7 +53,6 @@ var getCityLocation = function (city) {
     fetch(geoApiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
 
                 var newLat = data[0].lat;
                 var newLon = data[0].lon;
@@ -66,10 +65,9 @@ var getCityLocation = function (city) {
 
 var displayCurrentWeather = function (data, city) {
     //name
-    //var cityName = data[0].name;
-    //var currentCityName = document.createElement("h3");
-    //currentCityName.textContent = cityName;
-    //currentCity.appendChild(currentCityName);
+    var currentCityName = document.createElement("h3");
+    currentCityName.textContent = city;
+    currentCity.appendChild(currentCityName);
     //date
     var thisDate =moment().format("MMMM Do YYYY");
     var currentDate = document.createElement("p");
@@ -97,7 +95,6 @@ var displayCurrentWeather = function (data, city) {
     var currentCityWind = document.createElement("p");
     currentCityWind.textContent = "Wind: " + currentWind + " MPH";
     currentCity.appendChild(currentCityWind);
-    //console.log(currentWind);
 
     //UV
     var currentUv = data.current.uvi;
@@ -117,7 +114,6 @@ var displayCurrentWeather = function (data, city) {
         currentCityUv.classList.add("severe");
     }
 
-   
 };
 
 displayFiveDay = function(data){
@@ -128,7 +124,7 @@ displayFiveDay = function(data){
         parentDiv.classList.add("parent-el")
        // date
         var dateDaily = document.createElement("p")
-        var dailyDate =moment().add(1, "days").format("MMMM Do YYYY");
+        var dailyDate =moment.unix(data.daily[i].dt).format("MMMM Do YYYY");
         dateDaily.textContent = dailyDate;
        parentDiv.appendChild(dateDaily);
     
@@ -161,7 +157,6 @@ displayFiveDay = function(data){
 
 };
 var saved = function(){
-    //debugger;
     var saveCity = document.querySelector("#city-name").value;
     //console.log(saveCity);
     if (localStorage.getItem('city')==null){
@@ -180,6 +175,7 @@ var saved = function(){
 function clickButton(event){
     event.preventDefault;
     var cityClicked = event.target
+    currentCity.textContent = "";
     getCityLocation(cityClicked.textContent)
 }
 userFormEl.addEventListener("submit", formCitySubmit);
